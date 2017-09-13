@@ -78,7 +78,26 @@ static DemoCallManager *callManager = nil;
     } else {
         options = [[EMClient sharedClient].callManager getCallOptions];
         options.isSendPushIfOffline = NO;
-        options.videoResolution = EMCallVideoResolution1280_720;
+        
+        NSString *aaa = [[NSUserDefaults standardUserDefaults] objectForKey:@"Resolution"];
+        
+        if ([aaa isEqualToString:@"1"]) {
+            options.videoResolution = EMCallVideoResolution352_288;
+        }
+        
+        if ([aaa isEqualToString:@"2"]) {
+            options.videoResolution = EMCallVideoResolution640_480;
+        }
+        
+        if ([aaa isEqualToString:@"3"]) {
+            options.videoResolution = EMCallVideoResolution1280_720;
+        }
+        
+        if ([aaa isEqualToString:@"4"]) {
+            options.videoResolution = EMCallVideoResolutionAdaptive;
+        }
+        
+//        options.videoResolution = EMCallVideoResolution1280_720;
         options.isFixedVideoResolution = YES;
     }
     [[EMClient sharedClient].callManager setCallOptions:options];
