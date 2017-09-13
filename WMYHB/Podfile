@@ -1,0 +1,16 @@
+platform :ios, '8.0'
+
+# Import CocoaPods sources
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'WMYHB' do
+    
+    pod 'Hyphenate'
+    pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git', :tag => '3.3.2'
+    pod 'AFNetworking', '~> 2.5.3'
+
+#    pod 'EaseUI'
+
+    #pod 'Hyphenate_VideoRecoder', :path => '../HyphenateVideoRecoder'
+    
+end
