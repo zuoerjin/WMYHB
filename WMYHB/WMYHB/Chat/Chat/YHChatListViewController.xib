@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YHChatListViewController">
             <connections>
+                <outlet property="psw" destination="q6K-eT-tBb" id="lYs-MU-791"/>
+                <outlet property="username" destination="als-on-iVN" id="L4h-Hc-dON"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,16 +21,46 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se8-ls-UGt">
-                    <rect key="frame" x="141" y="230" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8001" borderStyle="roundedRect" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="als-on-iVN">
+                    <rect key="frame" x="40" y="115" width="295" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="111111" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q6K-eT-tBb">
+                    <rect key="frame" x="40" y="165" width="295" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l07-bW-zAb">
+                    <rect key="frame" x="172" y="226" width="31" height="30"/>
+                    <state key="normal" title="登录"/>
+                    <connections>
+                        <action selector="login:" destination="-1" eventType="touchUpInside" id="dc1-sz-yp2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se8-ls-UGt">
+                    <rect key="frame" x="172" y="283" width="31" height="30"/>
+                    <state key="normal" title="聊天"/>
                     <connections>
                         <action selector="test:" destination="-1" eventType="touchUpInside" id="jla-nB-n7y"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="q6K-eT-tBb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="0iD-ja-t0C"/>
+                <constraint firstItem="l07-bW-zAb" firstAttribute="top" secondItem="q6K-eT-tBb" secondAttribute="bottom" constant="31" id="0nt-Rw-eWN"/>
+                <constraint firstItem="l07-bW-zAb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2aT-b6-uPp"/>
+                <constraint firstAttribute="trailing" secondItem="als-on-iVN" secondAttribute="trailing" constant="40" id="9B3-23-Myp"/>
+                <constraint firstAttribute="trailing" secondItem="q6K-eT-tBb" secondAttribute="trailing" constant="40" id="Gct-Rd-ITZ"/>
+                <constraint firstItem="Se8-ls-UGt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H6B-pJ-tcG"/>
+                <constraint firstItem="als-on-iVN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="115" id="JiY-h0-gbr"/>
+                <constraint firstItem="als-on-iVN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="hzQ-a6-hNQ"/>
+                <constraint firstItem="q6K-eT-tBb" firstAttribute="top" secondItem="als-on-iVN" secondAttribute="bottom" constant="20" id="ldQ-ru-Vbg"/>
+                <constraint firstItem="Se8-ls-UGt" firstAttribute="top" secondItem="l07-bW-zAb" secondAttribute="bottom" constant="27" id="qAu-X3-5OU"/>
+            </constraints>
         </view>
     </objects>
 </document>

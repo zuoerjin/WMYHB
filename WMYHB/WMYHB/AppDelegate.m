@@ -19,9 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[YHUtility sharedInstance] setupAOPHooks];
+//    [[YHUtility sharedInstance] setupAOPHooks];
     [YHUtility customUIElement];
-    
+    [[MTDUtility sharedInstance] setupAOPHooks];
+
     
     [[EaseSDKHelper shareHelper] hyphenateApplication:application
                         didFinishLaunchingWithOptions:launchOptions

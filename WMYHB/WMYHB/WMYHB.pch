@@ -12,11 +12,10 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-//#ifdef __OBJC__
+#ifdef __OBJC__
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import <Hyphenate/Hyphenate.h>
 #import "EaseUI.h"
 #import "YH.h"
 
@@ -25,7 +24,7 @@
 #import "MTDConsts.h"
 #import "YHUtility.h"
 
-//#define DEMO_CALL 1
-
+#import <Hyphenate/Hyphenate.h>
 
 #endif /* WMYHB_pch */
+

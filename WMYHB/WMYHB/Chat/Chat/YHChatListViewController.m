@@ -7,8 +7,11 @@
 //
 
 #import "YHChatListViewController.h"
+#import "DemoCallManager.h"
 
 @interface YHChatListViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *psw;
 
 @end
 
@@ -17,21 +20,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"1221";
+    self.title = @"TEST";
     
 //    EMError *error = [[EMClient sharedClient] registerWithUsername:@"8001" password:@"111111"];
 
-    [[EMClient sharedClient] loginWithUsername:@"8001"
-                                      password:@"111111"
+    
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (IBAction)login:(id)sender {
+    
+    [self.username resignFirstResponder];
+    [self.psw resignFirstResponder];
+    
+    [[EMClient sharedClient] loginWithUsername:self.username.text
+                                      password:self.psw.text
                                     completion:^(NSString *aUsername, EMError *aError) {
                                         if (!aError) {
+                                            
+                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录成功" message:@"可点击下方进入聊天页面" delegate:nil
+                                                                                  cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+                                            
+                                            [alert show];
                                             NSLog(@"登录成功");
                                         } else {
+                                            
+                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:aError.errorDescription delegate:nil
+                                                                                  cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+                                            
+                                            [alert show];
+
                                             NSLog(@"登录失败");
                                         }
                                     }];
-    
-    // Do any additional setup after loading the view from its nib.
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +63,19 @@
 
 - (IBAction)test:(id)sender {
     
-    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:@"8002" conversationType:EMConversationTypeChat];
+    [DemoCallManager sharedManager];
+    
+    NSString *name = @"";
+    
+    if ([self.username.text isEqualToString:@"8001"]) {
+     
+        name = @"8002";
+    } else {
+        
+        name = @"8001";
+    }
+
+    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:name conversationType:EMConversationTypeChat];
 
     [self.navigationController pushViewController:chatController animated:YES];
 }
